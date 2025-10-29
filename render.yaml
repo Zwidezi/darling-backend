@@ -2,10 +2,13 @@ services:
   - type: web
     name: darling-backend
     env: node
+    region: frankfurt
     plan: free
-    region: singapore
+    repo: https://github.com/Zwidezi/darling-backend
+    branch: main
     buildCommand: npm install
     startCommand: node server.js
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
